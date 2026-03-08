@@ -1,26 +1,68 @@
+/* src/app/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-:root {
+@font-face{
+  font-family: 'VNI-Briquet';
+  src: url('/fonts/VNI-Briquet.woff2') format('woff2'),
+       url('/fonts/VNI-Briquet.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root{
   --background: #ffffff;
   --foreground: #171717;
+  --site-max-width: 1920px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* reset cơ bản */
+html, body, #__next {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* { box-sizing: border-box; }
+
+.site-shell {
+  position: relative;
+  z-index: 10; /* > .bgFrame */
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  background: none;
 }
 
-body {
+body{
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* background frame nằm dưới cùng */
+.bgFrame {
+  position: fixed !important;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  top: 0;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* đảm bảo header/main/footer nằm trong stacking context .site-shell */
+header, main, footer, .content {
+  position: relative;
+  z-index: inherit;
+}
+
+@media (max-width: 768px){
+  :root { --page-header-height: 48px; }
+}
+@media (max-width: 420px){
+  :root { --page-header-height: 44px; }
 }

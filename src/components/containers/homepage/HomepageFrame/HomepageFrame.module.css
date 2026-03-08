@@ -1,0 +1,103 @@
+/* src/components/containers/homepage/HomepageFrame/HomepageFrame.module.css */
+
+:root {
+  /* bg_4K (Figma) */
+  --bg-intrinsic-w: 1920px;   
+  --bg-intrinsic-h: 1045px;   
+
+  /* cloud (Figma) */
+  --overlay-cloud-width: 2906px;
+  --overlay-cloud-height: 951px;
+  --overlay-cloud-left: -433px;
+  --overlay-cloud-top: 597px;
+  --overlay-cloud-rotate: -180deg;
+
+  /* decorative art (Figma) */
+  --overlay-art-width: 1960px;
+  --overlay-art-height: 1420px;
+  --overlay-art-left: 76px;
+  --overlay-art-top: -81px;
+}
+
+/* wrapper */
+.imageWrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+
+  background-image: url('/assets/background_frame/bg-4K.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: var(--bg-intrinsic-w) var(--bg-intrinsic-h);
+}
+
+/* header frame */
+.headerFrame {
+  position: relative;
+  width: var(--bg-intrinsic-w);
+  height: var(--bg-intrinsic-h);       
+  max-width: 100%;                  
+  margin: 0 auto;                   
+  overflow: visible;
+  z-index: 10;
+}
+
+/* header image */
+.headerFrame .headerImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--bg-intrinsic-w);
+  height: var(--bg-intrinsic-h);
+  transform-origin: left top;
+  object-position: left top; /* tránh crop offset */
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Cloud overlay */
+.overlayCloud {
+  position: absolute;
+  left: var(--overlay-cloud-left);
+  top: var(--overlay-cloud-top);
+  width: var(--overlay-cloud-width);
+  height: var(--overlay-cloud-height);
+  transform-origin: center;
+  transform: rotate(var(--overlay-cloud-rotate));
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.overlayCloud img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Decorative art overlay */
+.overlayArt {
+  position: absolute;
+  left: var(--overlay-art-left);
+  top: var(--overlay-art-top);
+  width: var(--overlay-art-width);
+  height: var(--overlay-art-height);
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.overlayArt img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}

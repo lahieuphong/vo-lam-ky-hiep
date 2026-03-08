@@ -1,0 +1,33 @@
+
+/* src/components/containers/global/Footer/Footer.module.css */
+/* Footer không responsive: dùng kích thước cố định cho desktop */
+
+.footer {
+  position: relative;
+  z-index: 50;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* wrapper chứa background image (next/image fill) */
+.bgWrapper {
+  position: relative;
+  width: 100%;
+  height: 320px; /* chiều cao cố định cho desktop */
+}
+
+/* title/logo centered */
+.titleContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* fixed width cho title */
+.titleInner {
+  width: 360px; /* cố định theo ý bạn */
+  max-width: 90%;
+}

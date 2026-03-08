@@ -1,0 +1,158 @@
+/* src/components/containers/homepage/HomepageFrame2/HomepageFrame2.module.css */
+
+/* ---------- biến intrinsic (chỉnh nếu ảnh khác kích thước) ---------- */
+:root {
+  /* cố định chiều ngang theo yêu cầu */
+  --bg-intrinsic-w: 1920px;
+
+  /* cloud intrinsic (nếu cần dùng) */
+  --cloud-intrinsic-w: 2906px; /* chiều rộng gốc của Cloud_copy.png */
+  --cloud-intrinsic-h: 951px;  /* chiều cao gốc của Cloud_copy.png */
+  --cloud-top: 1247px;  /* vị trí top theo Figma */
+  --cloud-left: -917px; /* vị trí left theo Figma */
+
+
+  /* --- Title Frame variables (từ Figma) --- */
+  --title-width: 769px;
+  --title-height: 142px;
+  --title-top: 1336px;
+  --title-left: 577px;
+
+  /* text / title variables */
+   /* actual text metrics from Figma */
+  --title-font-family: 'VNI-Briquet', "Arial", sans-serif;
+  --title-font-weight: 400;
+  --title-font-size: 60px;
+  --title-line-height: 55px;
+  --title-letter-spacing: 0px;
+  --title-vertical-shift: 6px;
+
+  --title-gradient: linear-gradient(180deg,#FBD55E 0%, #FFF9BD 55%, #DFC068 100%);
+  --title-stroke-color: #6C2F00;
+  --title-stroke-width: 2px; /* Figma shows 2px border — chỉnh nếu cần */
+  --title-drop-shadow: 0 4px 10px rgba(0,0,0,0.25);
+
+
+
+  /* --- News Board variables (từ Figma) --- */
+  --newsboard-width: 1505px;
+  --newsboard-height: 734px;
+  --newsboard-top: 1353px;
+  --newsboard-left: 208px;
+
+  /* Nếu sau này muốn chuyển sang % để scale theo khung 1920x1045,
+     bạn có thể thêm biến dạng % ở đây (ví dụ: --newsboard-width-pct) */
+}
+
+/* cloud decorative wrapper */
+.cloudWrap{
+  position: absolute;
+  width: var(--cloud-intrinsic-w);
+  height: var(--cloud-intrinsic-h);
+  top: var(--cloud-top);
+  left: var(--cloud-left);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --- News Board (kích thước và vị trí theo Figma) --- */
+/* đặt absolute so với .imageWrapper (parent lớn nhất của header + pageWrapper)
+   .imageWrapper trong HomepageFrame.module.css đang position: relative; */
+
+/* 3) newsBoard — dùng biến như bạn đã khai báo */
+.newsBoard {
+  position: absolute;
+
+  /* nếu bạn muốn giới hạn không vượt quá khung 1920px */
+  max-width: var(--bg-intrinsic-w);
+
+  width: var(--newsboard-width);
+  height: var(--newsboard-height);
+
+  top: var(--newsboard-top);
+  left: var(--newsboard-left);
+
+  z-index: 4;
+  pointer-events: auto;
+  display: block;
+  overflow: hidden;
+}
+
+
+
+/* --- Title Frame style --- */
+/* Lưu ý: .titleFrame là absolute so với ancestor có position != static
+   (trong layout của bạn .imageWrapper có position: relative, nên .titleFrame
+   sẽ tính toạ độ từ .imageWrapper). */
+/* đảm bảo img bên trong titleFrame không gây gap */
+.titleFrame img,
+.titleFrame > .next-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Title Frame giữ nguyên vị trí */
+.titleFrame {
+  position: absolute;
+  width: var(--title-width);
+  height: var(--title-height);
+  top: var(--title-top);
+  left: var(--title-left);
+  z-index: 6;
+  pointer-events: none;
+  overflow: visible;
+  display: block;
+}
+
+/* Title text (overlay) - dùng top calc + biến để tinh chỉnh */
+.titleLabel {
+  position: absolute;
+  left: 50%;
+
+  /* shift theo biến: calc(40% + Npx) => center ngang, và đẩy xuống Npx */
+  top: calc(40% + var(--title-vertical-shift));
+  transform: translateX(-50%); /* chỉ translate X để giữ căn giữa ngang */
+
+  margin: 0;
+  padding: 0 12px;
+  white-space: nowrap;
+
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  font-size: var(--title-font-size);
+  line-height: var(--title-line-height);
+  letter-spacing: var(--title-letter-spacing);
+
+  background: var(--title-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: var(--title-stroke-width) var(--title-stroke-color);
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.15),
+    var(--title-drop-shadow);
+
+  pointer-events: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fallback cho trình duyệt không hỗ trợ -webkit-text-stroke:
+   mô phỏng viền bằng nhiều text-shadow (kết hợp với drop shadow) */
+@supports not (-webkit-text-stroke: 1px #000) {
+  .titleLabel {
+    color: #FBD55E; /* fallback color */
+    text-shadow:
+      -1px -1px 0 var(--title-stroke-color),
+       1px -1px 0 var(--title-stroke-color),
+      -1px  1px 0 var(--title-stroke-color),
+       1px  1px 0 var(--title-stroke-color),
+       0 1px 0 rgba(255,255,255,0.15),
+       var(--title-drop-shadow);
+    background: none;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+  }
+}
