@@ -1,3 +1,5 @@
+// src/components/containers/homepage/HomepageFrame2/HomepageFrame2.tsx
+
 'use client'
 
 import React from 'react'
@@ -43,6 +45,27 @@ export default function HomepageFrame2() {
           height={734}
           priority
         />
+      </div>
+
+      {/* khung trái (preview / thumbnail) */}
+      <div className={`${styles.newsInner} ${styles.newsInnerLeft}`} aria-label="Preview trái">
+        {/* Search box (hình) */}
+        <div className={styles.searchBox} aria-label="Search box">
+          <Image
+            src="/assets/background_frame_2/search-1.png"
+            alt="Search"
+            width={560}
+            height={55}
+            priority={false}
+          />
+        </div>
+
+        {/* TODO: Thêm thumbnail image / video preview ở đây khi cần */}
+      </div>
+
+      {/* khung phải (sau này) */}
+      <div className={`${styles.newsInner} ${styles.newsInnerRight}`} aria-label="Preview phải">
+        {/* nội dung / <Image/> */}
       </div>
     </section>
   )

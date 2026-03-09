@@ -1,25 +1,22 @@
 /* src/components/containers/homepage/HomepageFrame2/HomepageFrame2.module.css */
 
-/* ---------- biến intrinsic (chỉnh nếu ảnh khác kích thước) ---------- */
 :root {
-  /* cố định chiều ngang theo yêu cầu */
   --bg-intrinsic-w: 1920px;
 
-  /* cloud intrinsic (nếu cần dùng) */
-  --cloud-intrinsic-w: 2906px; /* chiều rộng gốc của Cloud_copy.png */
-  --cloud-intrinsic-h: 951px;  /* chiều cao gốc của Cloud_copy.png */
-  --cloud-top: 1247px;  /* vị trí top theo Figma */
-  --cloud-left: -917px; /* vị trí left theo Figma */
+  /* Cloud_copy.png */
+  --cloud-intrinsic-w: 2906px; 
+  --cloud-intrinsic-h: 951px;  
+  --cloud-top: 1247px; 
+  --cloud-left: -917px; 
 
 
-  /* --- Title Frame variables (từ Figma) --- */
+  /* --- Title Frame variables (Figma) --- */
   --title-width: 769px;
   --title-height: 142px;
   --title-top: 1336px;
   --title-left: 577px;
 
-  /* text / title variables */
-   /* actual text metrics from Figma */
+  /* text - title variables (Figma) */
   --title-font-family: 'VNI-Briquet', "Arial", sans-serif;
   --title-font-weight: 400;
   --title-font-size: 60px;
@@ -33,15 +30,37 @@
   --title-drop-shadow: 0 4px 10px rgba(0,0,0,0.25);
 
 
-
-  /* --- News Board variables (từ Figma) --- */
+  /* --- News Board variables (Figma) --- */
   --newsboard-width: 1505px;
   --newsboard-height: 734px;
   --newsboard-top: 1353px;
   --newsboard-left: 208px;
 
-  /* Nếu sau này muốn chuyển sang % để scale theo khung 1920x1045,
-     bạn có thể thêm biến dạng % ở đây (ví dụ: --newsboard-width-pct) */
+
+  /* --- Khung News Board left (Figma) --- */
+  --news-left-canvas-left: 287px;   
+  --news-left-canvas-top: 1531px;
+  --news-left-width: 583px;
+  --news-left-height: 379px;
+  --news-left-gap: 24px;
+
+
+  /* --- Khung News Board right (Figma) --- */
+  --news-right-canvas-left: 896px;  
+  --news-right-canvas-top: 1531px;
+  --news-right-width: 693px;
+  --news-right-height: 367px;
+  --news-right-gap: 37px;
+
+  
+
+  /* --- Search box variables (Figma) --- */
+  --search-width: 560px;
+  --search-height: 55px;
+  --search-top: 2px;
+  --search-border-gradient: linear-gradient(180deg, #6C581F 0%, #9B9054 30%, #FFF9BD 60%, #CCA88B 100%);
+  --search-bg: linear-gradient(180deg, rgba(3,30,21,0.62), rgba(6,44,35,0.4));
+  --search-border-width: 2px;
 }
 
 /* cloud decorative wrapper */
@@ -54,31 +73,6 @@
   z-index: 2;
   pointer-events: none;
 }
-
-/* --- News Board (kích thước và vị trí theo Figma) --- */
-/* đặt absolute so với .imageWrapper (parent lớn nhất của header + pageWrapper)
-   .imageWrapper trong HomepageFrame.module.css đang position: relative; */
-
-/* 3) newsBoard — dùng biến như bạn đã khai báo */
-.newsBoard {
-  position: absolute;
-
-  /* nếu bạn muốn giới hạn không vượt quá khung 1920px */
-  max-width: var(--bg-intrinsic-w);
-
-  width: var(--newsboard-width);
-  height: var(--newsboard-height);
-
-  top: var(--newsboard-top);
-  left: var(--newsboard-left);
-
-  z-index: 4;
-  pointer-events: auto;
-  display: block;
-  overflow: hidden;
-}
-
-
 
 /* --- Title Frame style --- */
 /* Lưu ý: .titleFrame là absolute so với ancestor có position != static
@@ -155,4 +149,88 @@
     background-clip: unset;
     -webkit-background-clip: unset;
   }
+}
+
+
+/* --- News Board (Figma) --- */
+.newsBoard {
+  position: absolute;
+  max-width: var(--bg-intrinsic-w);
+  width: var(--newsboard-width);
+  height: var(--newsboard-height);
+  top: var(--newsboard-top);
+  left: var(--newsboard-left);
+  z-index: 4;
+  pointer-events: auto;
+  display: block;
+}
+
+/* base chung */
+.newsInner {
+  position: absolute; /* relative to .newsBoard */
+  z-index: 6;
+  pointer-events: auto;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  border: 6px solid rgba(0,0,0,0.08);
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* khung nhỏ (thumbnail / preview) */
+.newsInnerLeft {
+  position: absolute; /* quan trọng: làm parent positioned để child absolute tính theo nó */
+  left: var(--news-left-canvas-left);   
+  top: var(--news-left-canvas-top);
+  width: var(--news-left-width);
+  height: var(--news-left-height);
+  gap: var(--news-left-gap);
+}
+
+/* khung nhỏ (thumbnail / preview) */
+.newsInnerRight {
+  position: absolute; /* quan trọng: làm parent positioned để child absolute tính theo nó */
+  left: var(--news-right-canvas-left);   
+  top: var(--news-right-canvas-top);
+  width: var(--news-right-width);
+  height: var(--news-right-height);
+  gap: var(--news-right-gap);
+}
+
+
+
+/* ---- search box: đặt absolute relative tới .newsInnerLeft và không tràn ---- */
+.searchBox {
+  /* vị trí relative tới .newsInnerLeft (vì .newsInnerLeft là positioned) */
+  position: absolute;
+
+  /* offset bên trong khung trái theo thiết kế */
+  top: var(--search-top);
+  width: var(--search-width);
+  height: var(--search-height);
+
+  box-sizing: border-box;
+  padding: 0;               
+
+  border: var(--search-border-width) solid transparent;
+  border-image: var(--search-border-gradient) 1;
+  border-radius: 6px;
+  background: var(--search-bg);
+
+  z-index: 8;
+  pointer-events: auto;
+}
+
+/* đảm bảo image nằm gọn trong khung */
+.searchBox :global(img),
+.searchBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
 }
