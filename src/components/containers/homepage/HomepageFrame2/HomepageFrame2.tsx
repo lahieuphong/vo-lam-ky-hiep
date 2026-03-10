@@ -9,6 +9,7 @@ import styles from './HomepageFrame2.module.css'
 export default function HomepageFrame2() {
   return (
     <section className={styles.pageWrapper} aria-labelledby="landing-section-title">
+
       {/* Cloud decorative */}
       <div className={styles.cloudWrap} aria-hidden="true">
         <Image
@@ -20,21 +21,19 @@ export default function HomepageFrame2() {
         />
       </div>
 
-      {/* Title Frame (nhỏ) */}
-        <div className={styles.titleFrame} aria-hidden="false">
+      {/* Title Frame */}
+      <div className={styles.titleFrame} aria-hidden="false">
         <Image
-            src="/assets/background_frame_2/Title_frame.png"
-            alt="Tiêu đề - Tin tức sự kiện"
-            width={769}
-            height={142}
-            priority
+          src="/assets/background_frame_2/Title_frame.png"
+          alt="Tiêu đề - Tin tức sự kiện"
+          width={769}
+          height={142}
+          priority
         />
-
-        {/* Title text (overlay) */}
         <h2 className={styles.titleLabel} role="heading" aria-level={2}>
-            Tin Tức - Sự Kiện
+          Tin Tức - Sự Kiện
         </h2>
-        </div>
+      </div>
 
       {/* News Board */}
       <div className={styles.newsBoard} aria-label="Tin tức - bảng">
@@ -60,7 +59,19 @@ export default function HomepageFrame2() {
           />
         </div>
 
-        {/* TODO: Thêm thumbnail image / video preview ở đây khi cần */}
+
+
+        <div className={styles.previewFrameOverlay} aria-label="Preview frame overlay">
+          <div className={styles.previewFrame} aria-hidden="true">
+            <Image
+              src="/assets/background_frame_2/Rectangle_3.png"
+              alt=""
+              width={583}
+              height={300}
+              priority={false}
+            />
+          </div>
+        </div>
       </div>
 
       {/* khung phải (sau này) */}
@@ -70,3 +81,14 @@ export default function HomepageFrame2() {
     </section>
   )
 }
+
+
+          {/* <div className={styles.previewMedia} aria-hidden="false">
+            <Image
+              src="/assets/background_frame_2/preview-thumb.png" 
+              alt="Preview thumbnail"
+              width={583}
+              height={300}
+              priority={false}
+            />
+          </div> */}
