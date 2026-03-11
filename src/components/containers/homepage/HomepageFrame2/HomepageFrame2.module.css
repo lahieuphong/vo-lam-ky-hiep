@@ -57,7 +57,7 @@
   /* --- Search box variables (Figma) --- */
   --search-width: 560px;
   --search-height: 55px;
-  --search-top: 2px;
+  --search-top: 0;
   --search-border-gradient: linear-gradient(180deg, #6C581F 0%, #9B9054 30%, #FFF9BD 60%, #CCA88B 100%);
   --search-bg: linear-gradient(180deg, rgba(3,30,21,0.62), rgba(6,44,35,0.4));
   --search-border-width: 2px;
@@ -66,6 +66,7 @@
   /* Preview frame overlay (Figma) */
   --preview-frame-overlay-width: 583px;
   --preview-frame-overlay-height: 300px;
+  --preview-inner-offset: 12px;
 }
 
 /* cloud decorative wrapper */
@@ -242,46 +243,91 @@
 
 
 
-/* wrapper (con của .newsInnerLeft) */
+/* ---- Replace these blocks in HomepageFrame2.module.css ---- */
+
+/* wrapper: stretch full ngang của .newsInnerLeft (không dùng fixed width) */
 .previewFrameOverlay {
   position: absolute;
-  left: -12px;
-  right: 0;
-  top: calc(var(--search-height) + var(--search-top)); 
 
-  width: var(--preview-frame-overlay-width);
+  /* top vẫn dựa trên biến search + gap (giữ logic cũ) */
+  top: calc(var(--search-height) + var(--news-left-gap));
+  /* phủ full ngang của parent (.newsInnerLeft) — an toàn hơn width cố định */
+  left: 0;
+  right: 0;
+
+  /* giữ chiều cao theo biến Figma (vẫn cần height cụ thể) */
   height: var(--preview-frame-overlay-height);
 
   z-index: 6;
   pointer-events: none;
 
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-
-  /* bỏ background khi test xong */
-  background-color: rgba(255,0,0,0.15);
+  /* overflow hidden để frame không tràn ra ngoài */
+  overflow: hidden;
 }
 
-/* container khung: bắt buộc position: relative để next/image fill hoạt động
-   dùng fallback value cho --preview-inner-offset để an toàn */
-.previewFrame {
-  position: relative; /* QUAN TRỌNG */
 
-  /* dùng fallback 12px nếu biến chưa được thiết lập */
-  width: calc(var(--preview-frame-overlay-width) + 12px);
-  height: calc(var(--preview-frame-overlay-height) + 12px);
+/* vùng media nằm UNDER khung, inset bằng --preview-inner-offset */
+.previewMedia {
+  position: absolute;
+  left: var(--preview-inner-offset);
+  right: var(--preview-inner-offset);
+  top: var(--preview-inner-offset);
+  bottom: var(--preview-inner-offset);
+
+  z-index: 2;        /* dưới khung */
+  overflow: hidden;  /* chặn phần ảnh tràn ra */
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+/* đảm bảo next/image fill trong .previewMedia */
+.previewMedia :global(.next-image),
+.previewMedia :global(img) {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* hoặc 'contain' nếu muốn thấy toàn bộ ảnh */
+}
+
+/* khung trang trí (nằm trên) — giữ nguyên, nhưng đảm bảo pointer-events none */
+.previewFrame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   z-index: 5;
   pointer-events: none;
 }
 
-/* đảm bảo next/image (wrapper + img) fill đúng */
+/* đảm bảo image khung hiển thị đúng */
 .previewFrame :global(.next-image),
 .previewFrame :global(img) {
-  display: block;
-  width: 100%;
-  height: 100%;
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: contain;
-  user-select: none;
-  -webkit-user-drag: none;
+}
+
+/* .previewFrame phủ full overlay (để next/image fill hoạt động an toàn) */
+.previewFrame {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* đảm bảo next/image fill / img cover container */
+.previewFrame :global(.next-image),
+.previewFrame :global(img) {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover; /* nếu muốn không crop, đổi sang 'contain' */
 }

@@ -59,18 +59,31 @@ export default function HomepageFrame2() {
           />
         </div>
 
-
-
+        {/* overlay wrapper (phủ ngang parent, height theo biến) */}
         <div className={styles.previewFrameOverlay} aria-label="Preview frame overlay">
+
+          {/* MEDIA phía dưới khung (thực tế nội dung bạn muốn hiển thị) */}
+          <div className={styles.previewMedia} aria-hidden="false">
+            <Image
+              src="/assets/background_frame_2/VLKH_screen_Tinhangdacbiet_0004_Video.png"
+              alt="Preview content"
+              fill
+              style={{ objectFit: 'cover' }}
+              priority={false}
+            />
+          </div>
+
+          {/* decorative frame overlay (Rectangle_3.png) nằm trên cùng */}
           <div className={styles.previewFrame} aria-hidden="true">
             <Image
               src="/assets/background_frame_2/Rectangle_3.png"
               alt=""
-              width={583}
-              height={300}
+              fill
+              style={{ objectFit: 'contain' }}
               priority={false}
             />
           </div>
+
         </div>
       </div>
 
@@ -81,14 +94,3 @@ export default function HomepageFrame2() {
     </section>
   )
 }
-
-
-          {/* <div className={styles.previewMedia} aria-hidden="false">
-            <Image
-              src="/assets/background_frame_2/preview-thumb.png" 
-              alt="Preview thumbnail"
-              width={583}
-              height={300}
-              priority={false}
-            />
-          </div> */}
