@@ -1,6 +1,5 @@
 
-/* src/components/containers/global/Footer/Footer.module.css */
-/* Footer không responsive: dùng kích thước cố định cho desktop */
+/* src/components/sections/Footer/Footer.module.css */
 
 .footer {
   position: relative;

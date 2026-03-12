@@ -1,4 +1,4 @@
-// src/components/containers/global/Header/Header.tsx
+// src/components/sections/Header/Header.tsx
 'use client'
 
 import React, { useState } from 'react'

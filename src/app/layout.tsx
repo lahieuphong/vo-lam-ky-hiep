@@ -1,10 +1,10 @@
 // src/app/layout.tsx
 import './globals.css'
 import React, { ReactNode } from 'react'
-import Header from '@/components/containers/global/Header/Header'
+import Header from '@/components/sections/Header/Header'
 import PageBackground from '@/components/ui/PageBackground'
-import Footer from '@/components/containers/global/Footer/Footer'
-import { HomepageFrame, HomepageFrame2 } from '@/components/containers/homepage'
+import Footer from '@/components/sections/Footer/Footer'
+import { HeroCharacters, NewsBoard } from '@/components/sections'
 
 export const metadata = {
   title: 'Võ Lâm Kỳ Hiệp - Trang chủ',
@@ -18,15 +18,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="site-shell">
           <Header />
 
-          <HomepageFrame>
-            <HomepageFrame2 />
+          <HeroCharacters>
+            <NewsBoard />
 
             <main>
               <PageBackground>
                 {children}
               </PageBackground>
             </main>
-          </HomepageFrame>
+          </HeroCharacters>
           
           <Footer />
         </div>

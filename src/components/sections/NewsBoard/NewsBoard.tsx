@@ -1,12 +1,12 @@
-// src/components/containers/homepage/HomepageFrame2/HomepageFrame2.tsx
+// src/components/sections/NewsBoard/NewsBoard.tsx
 
 'use client'
 
 import React from 'react'
 import Image from 'next/image'
-import styles from './HomepageFrame2.module.css'
+import styles from './NewsBoard.module.css'
 
-export default function HomepageFrame2() {
+export default function NewsBoard() {
   return (
     <section className={styles.pageWrapper} aria-labelledby="landing-section-title">
 

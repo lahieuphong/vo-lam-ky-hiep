@@ -1,4 +1,5 @@
-// components/blocks/Footer.tsx
+// src/components/sections/Footer/Footer.tsx
+
 import Image from 'next/image'
 import styles from './Footer.module.css'
 

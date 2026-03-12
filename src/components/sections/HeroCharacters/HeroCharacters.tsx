@@ -1,15 +1,15 @@
-// src/components/containers/homepage/HomepageFrame/HomepageFrame.tsx
+// src/components/sections/HeroCharacters/HeroCharacters.tsx
 'use client'
 
 import React from 'react'
 import Image from 'next/image'
-import styles from './HomepageFrame.module.css'
+import styles from './HeroCharacters.module.css'
 
 type Props = {
   children?: React.ReactNode
 }
 
-export default function HomepageFrame({ children }: Props) {
+export default function HeroCharacters({ children }: Props) {
   return (
     <div className={styles.imageWrapper}>
       <div className={styles.headerFrame}>
@@ -23,17 +23,6 @@ export default function HomepageFrame({ children }: Props) {
           priority
           className={styles.headerImage}
         />
-
-        {/* Cloud overlay — trang trí (không ảnh hưởng a11y) */}
-        <div className={styles.overlayCloud} aria-hidden="true">
-          <Image
-            src="/assets/background_frame/Cloud_01.png"
-            alt="" /* decorative */
-            width={2906}
-            height={951}
-            priority
-          />
-        </div>
 
         {/* Decorative characters/art — trang trí */}
         <div className={styles.overlayArt} aria-hidden="true">
