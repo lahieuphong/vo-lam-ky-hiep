@@ -5,6 +5,7 @@ import Header from '@/components/sections/Header/Header'
 import PageBackground from '@/components/ui/PageBackground'
 import Footer from '@/components/sections/Footer/Footer'
 import { HeroCharacters, NewsBoard } from '@/components/sections'
+import OverlayClouds from '@/components/layout/OverlayClouds/OverlayClouds'
 
 export const metadata = {
   title: 'Võ Lâm Kỳ Hiệp - Trang chủ',
@@ -17,8 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <div className="site-shell">
           <Header />
-
           <HeroCharacters>
+
             <NewsBoard />
 
             <main>

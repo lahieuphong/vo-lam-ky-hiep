@@ -17,6 +17,15 @@
   --site-max-width: 1920px;
 }
 
+:root{
+  --z-bg: 0;
+  --z-overlay: 10;   /* clouds */
+  --z-hero: 20;      /* hero artwork */
+  --z-site: 30;
+  --z-header: 40;    /* header phải cao hơn hero/overlay */
+  --z-content: 50;
+}
+
 /* reset cơ bản */
 html, body, #__next {
   width: 100%;

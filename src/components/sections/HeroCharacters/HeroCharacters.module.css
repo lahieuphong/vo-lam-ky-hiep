@@ -5,6 +5,13 @@
   --bg-intrinsic-w: 1920px;   
   --bg-intrinsic-h: 1045px;   
 
+  /* cloud (Figma) */
+  --overlay-cloud-width: 2906px;
+  --overlay-cloud-height: 951px;
+  --overlay-cloud-left: -433px;
+  --overlay-cloud-top: 597px;
+  --overlay-cloud-rotate: -180deg;
+
   /* decorative art (Figma) */
   --overlay-art-width: 1960px;
   --overlay-art-height: 1420px;
@@ -49,6 +56,29 @@
   -webkit-user-select: none;
   user-select: none;
   pointer-events: none;
+}
+
+/* Cloud overlay */
+.overlayCloud {
+  position: absolute;
+  left: var(--overlay-cloud-left);
+  top: var(--overlay-cloud-top);
+  width: var(--overlay-cloud-width);
+  height: var(--overlay-cloud-height);
+  transform-origin: center;
+  transform: rotate(var(--overlay-cloud-rotate));
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.overlayCloud img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* Decorative art overlay */

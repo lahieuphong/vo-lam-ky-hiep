@@ -24,6 +24,17 @@ export default function HeroCharacters({ children }: Props) {
           className={styles.headerImage}
         />
 
+        {/* Cloud overlay — trang trí (không ảnh hưởng a11y) */}
+        <div className={styles.overlayCloud} aria-hidden="true">
+          <Image
+            src="/assets/background_frame/Cloud_01.png"
+            alt="" /* decorative */
+            width={2906}
+            height={951}
+            priority
+          />
+        </div>
+
         {/* Decorative characters/art — trang trí */}
         <div className={styles.overlayArt} aria-hidden="true">
           <Image

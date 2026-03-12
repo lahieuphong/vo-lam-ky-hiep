@@ -1,23 +1,17 @@
-/* src/components/layout/OverlayClouds/OverlayClouds.module.css */
+src/components/layout/OverlayClouds/OverlayClouds.module.css
 
-/* OverlayClouds.module.css */
-
-/* đưa biến cloud vào :root global để dễ reuse (nếu bạn đã định nghĩa các biến này ở globals.css thì
-   có thể bỏ phần :global(:root) bên dưới) */
 :global(:root) {
-  /* cloud (Figma) */
+  /* Nếu bạn đã có --overlay-cloud-* ở module khác, giữ; nếu không, khai báo đây */
   --overlay-cloud-width: 2906px;
   --overlay-cloud-height: 951px;
   --overlay-cloud-left: -433px;
   --overlay-cloud-top: 597px;
   --overlay-cloud-rotate: -180deg;
-
-  /* fallback z-index nếu chưa có biến global */
-  --z-overlay: 10;
 }
 
+/* overlay clouds fixed trên viewport, nhưng z-index dùng biến global */
 .overlayCloud {
-  position: fixed; /* dùng fixed để mây nằm trên toàn trang; đổi thành absolute nếu bạn muốn follow container */
+  position: absolute;
   left: calc(50% + var(--overlay-cloud-left));
   top: var(--overlay-cloud-top);
   width: var(--overlay-cloud-width);
@@ -25,27 +19,29 @@
 
   transform-origin: center;
   transform: rotate(var(--overlay-cloud-rotate));
-  z-index: var(--z-overlay);
+  z-index: var(--z-overlay);   /* <- đảm bảo nằm trên bg-4K (z 20) */
   pointer-events: none;
-  overflow: hidden;
-
-  /* ensure it doesn't block interactions on page */
-  -webkit-user-select: none;
+  overflow: visible;
   user-select: none;
 }
 
-/* đảm bảo ảnh fill khung overlay */
+/* cho ảnh fill khung overlay */
 .overlayCloud :global(img),
 .overlayCloud img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
-  user-select: none;
   -webkit-user-drag: none;
 }
 
-/* responsive: ẩn overlay trên các màn nhỏ nếu muốn */
+/* Responsive: ẩn / thu nhỏ mây trên màn nhỏ để tránh tràn */
+@media (max-width: 1280px) {
+  .overlayCloud {
+    opacity: 0.9;
+    transform: rotate(var(--overlay-cloud-rotate)) scale(0.9);
+  }
+}
 @media (max-width: 1024px) {
   .overlayCloud { display: none; }
 }
