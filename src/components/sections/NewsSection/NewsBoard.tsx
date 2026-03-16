@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import styles from './NewsBoard.module.css'
 import NewsBoardLeft from './NewsBoardLeft'
+import NewsBoardRight from './NewsBoardRight'
 
 export default function NewsBoard() {
   return (
@@ -17,6 +18,10 @@ export default function NewsBoard() {
 
       <div className={styles.leftSlot}>
         <NewsBoardLeft />
+      </div>
+
+      <div className={styles.rightSlot}>
+        <NewsBoardRight />
       </div>
     </div>
   )
