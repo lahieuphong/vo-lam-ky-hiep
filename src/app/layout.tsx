@@ -1,36 +1,34 @@
-// src/app/layout.tsx
 import './globals.css'
-import React, { ReactNode } from 'react'
-import Header from '@/components/sections/Header/Header'
-import PageBackground from '@/components/ui/PageBackground'
+import React from 'react'
 import Footer from '@/components/sections/Footer/Footer'
-import { HeroCharacters, NewsBoard } from '@/components/sections'
-import OverlayClouds from '@/components/layout/OverlayClouds/OverlayClouds'
+import LandingShell from '@/components/landing/LandingShell/LandingShell'
+import { HeroSection, NewsSection } from '@/components/sections'
+import Header from '@/components/sections/Header/Header'
 
 export const metadata = {
   title: 'Võ Lâm Kỳ Hiệp - Trang chủ',
   description: 'Landing page game Võ Lâm Kỳ Hiệp'
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="vi">
       <body>
-        <div className="site-shell">
-          <Header />
-          <HeroCharacters>
+        <LandingShell>
+          <HeroSection>
+            <Header />
+          </HeroSection>
 
-            <NewsBoard />
+          <NewsSection />
 
-            <main>
-              <PageBackground>
-                {children}
-              </PageBackground>
-            </main>
-          </HeroCharacters>
-          
+          {children}
+
           <Footer />
-        </div>
+        </LandingShell>
       </body>
     </html>
   )

@@ -1,0 +1,16 @@
+/* src/components/landing/LandingShell/LandingShell.module.css */
+
+.shell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff5e6;
+  overflow: visible;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1;
+}

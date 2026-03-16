@@ -47,7 +47,7 @@ export default function Header() {
                 key={label}
                 type="button"
                 aria-current={activeIndex === idx ? 'page' : undefined}
-                className={`${styles.navLink} ${activeIndex === idx ? 'active' : ''}`}
+                className={`${styles.navLink} ${activeIndex === idx ? styles.active : ''}`}
                 onClick={() => setActiveIndex(idx)}
               >
                 {label}

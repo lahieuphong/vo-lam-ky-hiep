@@ -1,0 +1,42 @@
+.board {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  --left-slot-left: 79px;
+  --left-slot-top: 178px;
+  --left-slot-width: 583px;
+  --left-slot-height: 379px;
+
+  --right-slot-left: 688px;
+  --right-slot-top: 178px;
+  --right-slot-width: 693px;
+  --right-slot-height: 367px;
+}
+
+.boardImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.leftSlot {
+  position: absolute;
+  left: var(--left-slot-left);
+  top: var(--left-slot-top);
+  width: var(--left-slot-width);
+  height: var(--left-slot-height);
+  overflow: hidden;
+}
+
+.rightSlot {
+  position: absolute;
+  left: var(--right-slot-left);
+  top: var(--right-slot-top);
+  width: var(--right-slot-width);
+  height: var(--right-slot-height);
+  overflow: hidden;
+}

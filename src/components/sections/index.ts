@@ -1,4 +1,4 @@
 // src/components/sections/index.ts
 
-export { default as HeroCharacters } from './HeroCharacters/HeroCharacters'
-export { default as NewsBoard } from './NewsBoard/NewsBoard'
+export { default as HeroSection } from './HeroSection/HeroSection'
+export { default as NewsSection } from './NewsSection/NewsSection'

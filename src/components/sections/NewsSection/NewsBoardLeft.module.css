@@ -1,0 +1,79 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  --content-left: 12px;
+  --content-width: 560px;
+
+  --search-top: 14px;
+  --search-height: 55px;
+  --search-border-width: 2px;
+  --search-border-gradient: linear-gradient(180deg, #6c581f 0%, #9b9054 30%, #fff9bd 60%, #cca88b 100%);
+  --search-bg: linear-gradient(180deg, rgba(3, 30, 21, 0.62), rgba(6, 44, 35, 0.4));
+
+  --preview-top: 87px;
+  --preview-height: 300px;
+  --preview-inner-offset: 12px;
+}
+
+.searchBox {
+  position: absolute;
+  left: var(--content-left);
+  top: var(--search-top);
+  width: var(--content-width);
+  height: var(--search-height);
+  box-sizing: border-box;
+  border: var(--search-border-width) solid transparent;
+  border-image: var(--search-border-gradient) 1;
+  background: var(--search-bg);
+}
+
+.searchBox img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.previewFrameOverlay {
+  position: absolute;
+  left: var(--content-left);
+  top: var(--preview-top);
+  width: var(--content-width);
+  height: var(--preview-height);
+  overflow: hidden;
+}
+
+.previewMedia {
+  position: absolute;
+  left: var(--preview-inner-offset);
+  right: var(--preview-inner-offset);
+  top: var(--preview-inner-offset);
+  bottom: var(--preview-inner-offset);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.previewMedia :global(img) {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.previewFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.previewFrame :global(img) {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}

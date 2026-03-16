@@ -216,7 +216,7 @@
   text-shadow: none;
   transform: translateY(-1px);
 }
-.navLink.active {
+.active {
   color: var(--nav-highlight);
   -webkit-background-clip: initial;
   background-clip: initial;

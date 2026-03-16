@@ -1,31 +1,33 @@
-/* src/components/sections/HeroCharacters/HeroCharacters.module.css */
+/* src/components/sections/HeroSection/HeroSection.module.css */
 
-:root {
-  /* bg_4K (Figma) */
-  --bg-intrinsic-w: 1920px;   
-  --bg-intrinsic-h: 1045px;   
+.section {
+  position: relative;
+  width: 100%;
+  overflow: visible;
 
-  /* cloud (Figma) */
+  --bg-intrinsic-w: 1920px;
+  --bg-intrinsic-h: 1205px;
+
   --overlay-cloud-width: 2906px;
   --overlay-cloud-height: 951px;
   --overlay-cloud-left: -433px;
   --overlay-cloud-top: 597px;
   --overlay-cloud-rotate: -180deg;
 
-  /* decorative art (Figma) */
   --overlay-art-width: 1960px;
   --overlay-art-height: 1420px;
   --overlay-art-left: 76px;
   --overlay-art-top: -81px;
 }
 
-/* wrapper */
-.imageWrapper {
+.frame {
   position: relative;
-  z-index: 1;
-  width: 100%;
-  box-sizing: border-box;
+  width: var(--bg-intrinsic-w);
+  height: var(--bg-intrinsic-h);
+  max-width: 100%;
+  margin: 0 auto;
   overflow: visible;
+  z-index: 10;
 
   background-image: url('/assets/background_frame/bg-4K.png');
   background-repeat: no-repeat;
@@ -33,40 +35,26 @@
   background-size: var(--bg-intrinsic-w) var(--bg-intrinsic-h);
 }
 
-/* header frame */
-.headerFrame {
-  position: relative;
-  width: var(--bg-intrinsic-w);
-  height: var(--bg-intrinsic-h);       
-  max-width: 100%;                  
-  margin: 0 auto;                   
-  overflow: visible;
-  z-index: 10;
-}
-
-/* header image */
-.headerFrame .headerImage {
+.headerImage {
   position: absolute;
   left: 0;
   top: 0;
-  width: var(--bg-intrinsic-w);
-  height: var(--bg-intrinsic-h);
-  transform-origin: left top;
-  object-position: left top; /* tránh crop offset */
-  -webkit-user-select: none;
+  width: 1920px;
+  height: 1045px;
+  object-position: left top;
   user-select: none;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* Cloud overlay */
 .overlayCloud {
   position: absolute;
   left: var(--overlay-cloud-left);
   top: var(--overlay-cloud-top);
   width: var(--overlay-cloud-width);
   height: var(--overlay-cloud-height);
-  transform-origin: center;
   transform: rotate(var(--overlay-cloud-rotate));
+  transform-origin: center;
   z-index: 2;
   pointer-events: none;
   overflow: hidden;
@@ -81,7 +69,6 @@
   -webkit-user-drag: none;
 }
 
-/* Decorative art overlay */
 .overlayArt {
   position: absolute;
   left: var(--overlay-art-left);
@@ -100,4 +87,10 @@
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.headerLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
 }
