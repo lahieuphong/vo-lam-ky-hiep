@@ -7,7 +7,7 @@ export default function NewsBoardLeft() {
     <div className={styles.wrapper}>
       <div className={styles.searchBox}>
         <Image
-          src="/assets/background_frame_2/search-1.png"
+          src="/assets/sections/NewsSection/NewsBoardLeft/search-1.png"
           alt="Tìm kiếm tin tức"
           width={560}
           height={55}
@@ -17,7 +17,7 @@ export default function NewsBoardLeft() {
       <div className={styles.previewFrameOverlay}>
         <div className={styles.previewMedia}>
           <Image
-            src="/assets/background_frame_2/VLKH_screen_Tinhangdacbiet_0004_Video.png"
+            src="/assets/sections/NewsSection/NewsBoardLeft/VLKH_screen_Tinhangdacbiet_0004_Video.png"
             alt="Ảnh xem trước"
             fill
             style={{ objectFit: 'cover' }}
@@ -26,7 +26,7 @@ export default function NewsBoardLeft() {
 
         <div className={styles.previewFrame} aria-hidden="true">
           <Image
-            src="/assets/background_frame_2/Rectangle_3.png"
+            src="/assets/sections/NewsSection/NewsBoardLeft/Rectangle_3.png"
             alt=""
             fill
             style={{ objectFit: 'contain' }}

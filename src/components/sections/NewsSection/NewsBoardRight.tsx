@@ -16,7 +16,7 @@ export default function NewsBoardRight() {
             >
               {tab.active && (
                 <Image
-                  src="/assets/background_frame_2/Badget.png"
+                  src="/assets/sections/NewsSection/NewsBoardRight/Badget.png"
                   alt=""
                   fill
                   className={styles.tabBadge}
@@ -29,7 +29,7 @@ export default function NewsBoardRight() {
 
         <button type="button" className={styles.plusButton} aria-label="Xem thêm">
           <Image
-            src="/assets/background_frame_2/Plus-circle.png"
+            src="/assets/sections/NewsSection/NewsBoardRight/Plus-circle.png"
             alt=""
             width={30}
             height={30}
@@ -42,7 +42,7 @@ export default function NewsBoardRight() {
           <div key={item.id} className={styles.infoRow}>
             <div className={styles.leftCol}>
               <Image
-                src="/assets/background_frame_2/VLKH_screen_Tintuc_0003_symbol.png"
+                src="/assets/sections/NewsSection/NewsBoardRight/VLKH_screen_Tintuc_0003_symbol.png"
                 alt=""
                 width={25}
                 height={25}

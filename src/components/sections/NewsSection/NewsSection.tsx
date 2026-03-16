@@ -13,7 +13,7 @@ export default function NewsSection() {
       <div className={styles.frame}>
         <div className={styles.cloudWrap} aria-hidden="true">
           <Image
-            src="/assets/background_frame_2/Cloud_copy.png"
+            src="/assets/sections/NewsSection/NewsSection/Cloud_copy.png"
             alt=""
             width={2928}
             height={1990}
@@ -23,7 +23,7 @@ export default function NewsSection() {
 
         <div className={styles.titleFrame}>
           <Image
-            src="/assets/background_frame_2/Title_frame.png"
+            src="/assets/sections/NewsSection/NewsSection/Title_frame.png"
             alt="Tiêu đề - Tin tức sự kiện"
             width={769}
             height={142}

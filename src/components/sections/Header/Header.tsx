@@ -13,13 +13,13 @@ export default function Header() {
   return (
     <header className={styles.header} role="banner">
       <div className={styles.imageWrapper}>
-        {/* nếu bạn muốn bật ảnh header lớn, bỏ comment và dùng HomepageFrame để đặt ảnh */}
-        {/* <Image src="/assets/header/nav.png" alt="header" width={1920} height={1045} priority className={styles.headerImage} /> */}
+        {/* muốn bật ảnh header lớn, bỏ comment và dùng HomepageFrame để đặt ảnh */}
+        {/* <Image src="/assets/sections/Header/nav.png" alt="header" width={1920} height={1045} priority className={styles.headerImage} /> */}
 
         <div className={styles.titleContainer} aria-hidden="true">
           <div className={styles.titleInner}>
             <Image
-              src="/assets/header/title_game_03.png"
+              src="/assets/sections/Header/title_game_03.png"
               alt="Võ Lâm Kỳ Hiệp - title"
               width={278}
               height={154}
@@ -31,7 +31,7 @@ export default function Header() {
 
         <div className={styles.badge} aria-hidden="true">
           <Image
-            src="/assets/header/tag_18.svg"
+            src="/assets/sections/Header/tag_18.svg"
             alt="Age tag"
             width={280}
             height={158}

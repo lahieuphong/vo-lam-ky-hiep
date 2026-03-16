@@ -8,7 +8,7 @@ export default function NewsBoard() {
   return (
     <div className={styles.board}>
       <Image
-        src="/assets/background_frame_2/VLKH_screen_Tintuc_0006_main_board.png"
+        src="/assets/sections/NewsSection/NewsBoard/VLKH_screen_Tintuc_0006_main_board.png"
         alt="Bảng tin tức sự kiện"
         width={1505}
         height={734}

@@ -14,7 +14,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
     <section className={styles.section} aria-label="Hero section">
       <div className={styles.frame}>
         <Image
-          src="/assets/header/nav.png"
+          src="/assets/sections/Header/nav.png"
           alt="Võ Lâm Kỳ Hiệp — header artwork"
           width={1920}
           height={1045}
@@ -24,7 +24,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
 
         <div className={styles.overlayCloud} aria-hidden="true">
           <Image
-            src="/assets/background_frame/Cloud_01.png"
+            src="/assets/sections/HeroSection/Cloud_01.png"
             alt=""
             width={2906}
             height={951}
@@ -34,7 +34,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
 
         <div className={styles.overlayArt} aria-hidden="true">
           <Image
-            src="/assets/background_frame/2char.png"
+            src="/assets/sections/HeroSection/2char.png"
             alt=""
             width={1960}
             height={1420}
