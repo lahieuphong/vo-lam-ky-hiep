@@ -1,10 +1,11 @@
-/* src/components/sections/Header/Header.module.css */
+/* src/components/sections/Header/Header/Header.module.css */
 
-:root{
+.header {
+  /* design base */
   --design-image-width: 1920px;
   --design-image-height: 1045px;
 
-  /* layout (giữ theo Figma thiết kế 1920) */
+  /* layout */
   --nav-width: 1320px;
   --nav-gap: 40px;
   --nav-first-width: 298px;
@@ -22,13 +23,17 @@
   --nav-color: rgba(255,255,255,0.98);
   --nav-highlight: #FBE779;
 
-  /* FIXED scale — không thay đổi runtime */
+  /* text nav */
+  --nav-text-box-height: 36px;
+  --nav-text-optical-offset: calc(var(--nav-height) * 0.148148);
+
+  /* fixed scale */
   --nav-scale: 1;
 
-  /* header height (dùng làm padding-top cho PageBackground) */
+  /* page */
   --page-header-height: 1045px;
 
-  /* logo / badge */
+  /* logo */
   --logo-width: 278px;
   --logo-height: 154px;
   --logo-design-left: 30px;
@@ -36,20 +41,19 @@
   --logo-nudge-x: 0px;
   --logo-nudge-y: 0px;
 
-  --badge-width: 259px;
-  --badge-height: 138px;
-  --badge-left-offset: 30px;
-  --badge-gap: 24px;
-
+  /* overlay */
   --nav-band-height: 54px;
-}
 
-/* container tổng */
-.header {
   position: relative;
   z-index: 1000;
 }
 
+/* wrapper */
+.imageWrapper {
+  position: relative;
+}
+
+/* header image */
 .headerImage {
   display: block;
   width: 100%;
@@ -61,32 +65,21 @@
   user-select: none;
 }
 
-/* --- Logo: đặt sang trái trong vùng nav và scale cùng nav --- */
-/* đảm bảo titleContainer cho phép badge tràn và scale cả khối */
+/* logo */
 .titleContainer {
   position: absolute;
-
-  /* left/top vẫn dùng design base (không ép scale thêm ở đây) */
-  left: calc(var(--nav-scale) * var(--logo-design-left) + var(--logo-nudge-x));
-  top: calc(var(--nav-scale) * var(--logo-design-top) + var(--logo-nudge-y));
-
+  left: calc(var(--logo-design-left) + var(--logo-nudge-x));
+  top: calc(var(--logo-design-top) + var(--logo-nudge-y));
   width: var(--logo-width);
   height: var(--logo-height);
-
   z-index: 70;
   pointer-events: none;
-
-  /* cho phép badge nằm ngoài vùng logo */
   overflow: visible;
-
-  /* scale từ góc trái-top để logo + badge scale đồng bộ */
   transform-origin: left top;
   transform: scale(var(--nav-scale));
   will-change: transform;
 }
 
-/* nếu bạn muốn điều chỉnh nội dung logo bên trong (ví dụ width 100% để ảnh fit) */
-/* logo bên trong */
 .titleInner {
   position: relative;
   width: 100%;
@@ -94,7 +87,6 @@
   display: block;
 }
 
-/* style image trong titleInner */
 .titleInner img {
   display: block;
   width: 100%;
@@ -102,61 +94,24 @@
   object-fit: contain;
 }
 
-
-/* BADGE: vị trí + kích thước đều tính theo --nav-scale và design offsets */
-.badge {
-  position: absolute;
-
-  /* left = s * (logo-design-left + badge-left-offset) + nudge */
-  left: calc(
-    var(--nav-scale) * var(--badge-left-offset)
-    + var(--logo-nudge-x)
-  );
-
-  /* top = s * (logo-design-top + logo-height + badge-gap) + nudgeY
-     => đặt ngay phía dưới logo ở tọa độ thiết kế, rồi scale */
-  top: calc(
-    var(--nav-scale) * (var(--badge-height) + var(--badge-gap) + var(--badge-gap))
-    + var(--logo-nudge-y)
-  );
-
-  /* kích thước hiển thị cũng scale theo nav-scale */
-  width: calc(var(--nav-scale) * var(--badge-width));
-  height: calc(var(--nav-scale) * var(--badge-height));
-
-  pointer-events: none;
-  z-index: 68;
-}
-
-/* chứa ảnh badge fit khung */
-.badge img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-
-
-/* overlay band */
+/* nav overlay */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(var(--nav-band-height, 90px) * var(--nav-scale));
+  height: calc(var(--nav-band-height) * var(--nav-scale));
   pointer-events: none;
   z-index: 40;
   background: linear-gradient(180deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.5) 35%, rgba(0,0,0,0) 100%);
 }
 
-/* nav group */
+/* nav container */
 .navContainer {
   pointer-events: auto;
   position: absolute;
   top: calc(var(--nav-top-offset) * var(--nav-scale));
   left: calc(var(--nav-left-offset) * var(--nav-scale));
-  transform: none;
   width: calc(var(--nav-width) * var(--nav-scale));
   height: calc(var(--nav-height) * var(--nav-scale));
   display: flex;
@@ -168,8 +123,9 @@
   padding: 0 8px;
 }
 
-/* nav buttons */
+/* nav item */
 .navLink {
+  position: relative;
   height: 100%;
   display: inline-flex;
   align-items: center;
@@ -179,25 +135,40 @@
   border: 0;
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
+  transform: translateZ(0);
+  transition: color .12s ease, transform .12s ease;
+}
+
+.navText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: calc(var(--nav-text-box-height) * var(--nav-scale));
+  transform: translateY(calc(-50% + var(--nav-text-optical-offset) * var(--nav-scale)));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   font-family: var(--nav-font-family);
   font-weight: var(--nav-font-weight);
   font-size: calc(var(--nav-font-size) * var(--nav-scale));
-  line-height: var(--nav-line-height);
+  line-height: 1;
   letter-spacing: var(--nav-letter-spacing);
   color: var(--nav-color);
   text-transform: uppercase;
-  white-space: nowrap;
-  transform: translateZ(0);
-  transition: color .12s ease, transform .12s ease;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* widths scaled to match design */
+/* nav widths */
 .navContainer > button:nth-child(1) {
   width: calc(var(--nav-first-width) * var(--nav-scale));
 }
+
 .navContainer > button:nth-child(2),
 .navContainer > button:nth-child(3),
 .navContainer > button:nth-child(4),
@@ -205,18 +176,23 @@
   width: calc(var(--nav-other-width) * var(--nav-scale));
 }
 
-/* hover / active */
+/* nav states */
 .navLink:hover,
 .navLink:focus {
   outline: none;
+  transform: translateY(-1px);
+}
+
+.navLink:hover .navText,
+.navLink:focus .navText {
   background-image: linear-gradient(90deg, #FBE779 0%, #FBFC99 40%, #FBD55E 70%, #9B9054 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow: none;
-  transform: translateY(-1px);
 }
-.active {
+
+.active .navText {
   color: var(--nav-highlight);
   -webkit-background-clip: initial;
   background-clip: initial;

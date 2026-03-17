@@ -1,12 +1,5 @@
-import React from 'react'
-// import Hero from '@/components/blocks/Hero'
-import Gallery from '@/components/blocks/Gallery'
+// src/app/page.tsx
 
 export default function Home() {
-  return (
-    <>
-      {/* <Hero /> */}
-      <Gallery />
-    </>
-  )
+  return null
 }

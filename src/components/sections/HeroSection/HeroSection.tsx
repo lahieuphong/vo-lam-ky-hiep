@@ -1,4 +1,3 @@
-// src/components/sections/HeroSection/HeroSection.tsx
 'use client'
 
 import React from 'react'
@@ -13,6 +12,17 @@ export default function HeroSection({ children }: HeroSectionProps) {
   return (
     <section className={styles.section} aria-label="Hero section">
       <div className={styles.frame}>
+        <div className={styles.bgLayer} aria-hidden="true">
+          <Image
+            src="/assets/sections/HeroSection/bg-blur.png"
+            alt=""
+            width={1920}
+            height={1205}
+            priority
+            className={styles.bgImage}
+          />
+        </div>
+
         <Image
           src="/assets/sections/Header/nav.png"
           alt="Võ Lâm Kỳ Hiệp — header artwork"

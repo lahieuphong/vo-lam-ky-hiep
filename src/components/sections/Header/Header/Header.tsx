@@ -1,9 +1,10 @@
-// src/components/sections/Header/Header.tsx
+// src/components/sections/Header/Header/Header.tsx
 'use client'
 
 import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from './Header.module.css'
+import HeaderAgeBadge from '../HeaderAgeBadge/HeaderAgeBadge'
 
 const NAV = ['TRANG CHỦ', 'TIN TỨC - SỰ KIỆN', 'CẨM NANG', 'CỘNG ĐỒNG', 'NHẬP CODE']
 
@@ -29,16 +30,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className={styles.badge} aria-hidden="true">
-          <Image
-            src="/assets/sections/Header/tag_18.svg"
-            alt="Age tag"
-            width={280}
-            height={158}
-            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-            priority
-          />
-        </div>
+        <HeaderAgeBadge />
 
         <div className={styles.overlay}>
           <nav aria-label="Main navigation" className={styles.navContainer}>
@@ -50,7 +42,7 @@ export default function Header() {
                 className={`${styles.navLink} ${activeIndex === idx ? styles.active : ''}`}
                 onClick={() => setActiveIndex(idx)}
               >
-                {label}
+                <span className={styles.navText}>{label}</span>
               </button>
             ))}
           </nav>

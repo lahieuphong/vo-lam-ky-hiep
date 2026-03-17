@@ -1,0 +1,127 @@
+/* src/components/sections/Header/HeaderAgeBadge/HeaderAgeBadge.module.css */
+
+/* badge frame */
+.wrapper {
+  position: absolute;
+  left: 52px;
+  top: 210px;
+  width: 186px;
+  height: 99px;
+  z-index: 69;
+  pointer-events: none;
+}
+
+/* inner container */
+.inner {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  border: 1.5px solid #ffffff;
+  box-sizing: border-box;
+  padding: 4px;
+}
+
+/* outer black border */
+.inner::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 4px solid #000000;
+  z-index: -1;
+}
+
+/* top row */
+.topRow {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  height: 52px;
+}
+
+/* age box */
+.ageBox {
+  width: 84px;
+  height: 36px;
+  background: #f2f2f2;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* age text */
+.ageText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000000;
+}
+
+/* rating row */
+.middleRow {
+  margin-top: -16px;
+  width: 81px;
+  height: 26px;
+  background: #000000;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* rating text */
+.rankText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+}
+
+/* notice box */
+.noticeBox {
+  flex: 1;
+  height: 58px;
+  background: #2a2a2a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* notice text */
+.noticeText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 6px;
+}
+
+/* bottom row */
+.bottomRow {
+  width: 100%;
+  height: 26px;
+  background: #2a2a2a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* footer text */
+.footerText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #ffffff;
+}
