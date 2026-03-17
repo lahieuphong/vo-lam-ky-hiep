@@ -1,0 +1,30 @@
+/* src/components/sections/HeroSection/HeroClouds/HeroClouds.module.css */
+
+.wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-cloud);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.cloudItem {
+  position: absolute;
+  left: var(--cloud-left);
+  top: var(--cloud-top);
+  width: var(--cloud-width);
+  height: var(--cloud-height);
+  transform: rotate(var(--cloud-rotate));
+  transform-origin: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cloudImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}

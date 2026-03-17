@@ -16,19 +16,11 @@
   --z-art: 0;
   --z-header: 20;
 
-  /* bg display size
-     bg gốc nhỏ hơn cụm 2char, nên cần nới khung hiển thị để tránh lộ nền kem */
+  /* bg display size */
   --bg-display-width: 1920px;
-  --bg-display-height: 1205px;
+  --bg-display-height: 1045px;
   --bg-display-left: 0px;
   --bg-display-top: 0px;
-
-  /* cloud */
-  --overlay-cloud-width: 2906px;
-  --overlay-cloud-height: 951px;
-  --overlay-cloud-left: -433px;
-  --overlay-cloud-top: 597px;
-  --overlay-cloud-rotate: -180deg;
 
   /* 2char */
   --overlay-art-width: 1960px;
@@ -79,29 +71,6 @@
   user-select: none;
   pointer-events: none;
   z-index: var(--z-nav-image);
-}
-
-/* cloud */
-.overlayCloud {
-  position: absolute;
-  left: var(--overlay-cloud-left);
-  top: var(--overlay-cloud-top);
-  width: var(--overlay-cloud-width);
-  height: var(--overlay-cloud-height);
-  transform: rotate(var(--overlay-cloud-rotate));
-  transform-origin: center;
-  z-index: var(--z-cloud);
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.overlayCloud img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 /* 2char */

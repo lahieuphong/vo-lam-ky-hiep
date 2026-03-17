@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from './HeroSection.module.css'
+import HeroClouds from './HeroClouds/HeroClouds'
 
 type HeroSectionProps = {
   children?: React.ReactNode
@@ -32,15 +33,7 @@ export default function HeroSection({ children }: HeroSectionProps) {
           className={styles.headerImage}
         />
 
-        <div className={styles.overlayCloud} aria-hidden="true">
-          <Image
-            src="/assets/sections/HeroSection/Cloud_01.png"
-            alt=""
-            width={2906}
-            height={951}
-            priority
-          />
-        </div>
+        <HeroClouds />
 
         <div className={styles.overlayArt} aria-hidden="true">
           <Image
