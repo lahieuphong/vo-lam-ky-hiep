@@ -1,0 +1,24 @@
+/* src/components/sections/NewsRankingSection/NewsRankingSection.module.css */
+
+.section {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+
+  --section-width: 1920px;
+  --section-min-height: 2142px;
+}
+
+.frame {
+  position: relative;
+  width: var(--section-width);
+  min-height: var(--section-min-height);
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.contentLayer {
+  position: relative;
+  z-index: 3;
+}

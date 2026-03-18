@@ -1,9 +1,7 @@
+// src/app/layout.tsx
+
 import './globals.css'
 import React from 'react'
-import Footer from '@/components/sections/Footer/Footer'
-import LandingShell from '@/components/landing/LandingShell/LandingShell'
-import { HeroSection, NewsSection } from '@/components/sections'
-import Header from '@/components/sections/Header/Header/Header'
 
 export const metadata = {
   title: 'Võ Lâm Kỳ Hiệp - Trang chủ',
@@ -17,19 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body>
-        <LandingShell>
-          <HeroSection>
-            <Header />
-          </HeroSection>
-
-          <NewsSection />
-
-          {children}
-
-          <Footer />
-        </LandingShell>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

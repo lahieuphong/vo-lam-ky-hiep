@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import styles from './Header.module.css'
-import HeaderAgeBadge from '../HeaderAgeBadge/HeaderAgeBadge'
+import HeaderAgeBadge from './HeaderAgeBadge/HeaderAgeBadge'
 
 const NAV = ['TRANG CHỦ', 'TIN TỨC - SỰ KIỆN', 'CẨM NANG', 'CỘNG ĐỒNG', 'NHẬP CODE']
 
@@ -14,7 +14,6 @@ export default function Header() {
   return (
     <header className={styles.header} role="banner">
       <div className={styles.imageWrapper}>
-        {/* muốn bật ảnh header lớn, bỏ comment và dùng HomepageFrame để đặt ảnh */}
         {/* <Image src="/assets/sections/Header/nav.png" alt="header" width={1920} height={1045} priority className={styles.headerImage} /> */}
 
         <div className={styles.titleContainer} aria-hidden="true">

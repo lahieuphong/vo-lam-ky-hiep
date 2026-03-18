@@ -1,7 +1,9 @@
+
+// src/components/sections/NewsRankingSection/NewsSection/NewsBoardRight/NewsBoardRight.tsx
 import React from 'react'
 import Image from 'next/image'
 import styles from './NewsBoardRight.module.css'
-import { NEWS_TABS, NEWS_ITEMS, type NewsTabItem, type NewsItem } from './newsSection.data'
+import { NEWS_TABS, NEWS_ITEMS, type NewsTabItem, type NewsItem } from '../newsSection.data'
 
 export default function NewsBoardRight() {
   return (
@@ -16,7 +18,7 @@ export default function NewsBoardRight() {
             >
               {tab.active && (
                 <Image
-                  src="/assets/sections/NewsSection/NewsBoardRight/Badget.png"
+                  src="/assets/sections/NewsRankingSection/NewsSection/NewsBoardRight/Badget.png"
                   alt=""
                   fill
                   className={styles.tabBadge}
@@ -29,7 +31,7 @@ export default function NewsBoardRight() {
 
         <button type="button" className={styles.plusButton} aria-label="Xem thêm">
           <Image
-            src="/assets/sections/NewsSection/NewsBoardRight/Plus-circle.png"
+            src="/assets/sections/NewsRankingSection/NewsSection/NewsBoardRight/Plus-circle.png"
             alt=""
             width={30}
             height={30}
@@ -42,7 +44,7 @@ export default function NewsBoardRight() {
           <div key={item.id} className={styles.infoRow}>
             <div className={styles.leftCol}>
               <Image
-                src="/assets/sections/NewsSection/NewsBoardRight/VLKH_screen_Tintuc_0003_symbol.png"
+                src="/assets/sections/NewsRankingSection/NewsSection/NewsBoardRight/VLKH_screen_Tintuc_0003_symbol.png"
                 alt=""
                 width={25}
                 height={25}

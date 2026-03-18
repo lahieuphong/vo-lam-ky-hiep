@@ -1,3 +1,5 @@
+// src/components/sections/HeroSection/HeroClouds/heroClouds.data.ts
+
 export type HeroCloudItem = {
   id: string
   src: string
@@ -10,18 +12,27 @@ export type HeroCloudItem = {
 }
 
 const CLOUD_TRANS_SRC = '/assets/sections/HeroSection/cloud-trans.png'
-const CLOUD_BASE_SRC = '/assets/sections/HeroSection/Cloud_01.png'
 
 export const HERO_CLOUDS: HeroCloudItem[] = [
-  // Transparent clouds - left
+//   {
+//     id: 'cloud-trans-left-01',
+//     src: CLOUD_TRANS_SRC,
+//     width: 2173.76,
+//     height: 481.85,
+//     top: 910.6,
+//     left: -153,
+//     rotate: 0,
+//     layer: 1
+//   },
   {
-    id: 'cloud-trans-left-01',
+    id: 'cloud-trans-right-01',
     src: CLOUD_TRANS_SRC,
-    width: 2173.76,
+    width: 1421.46,
     height: 481.85,
     top: 910.6,
-    left: -153,
-    layer: 1
+    left: 599.3,
+    rotate: -180,
+    layer: 2
   },
   {
     id: 'cloud-trans-left-02',
@@ -30,19 +41,8 @@ export const HERO_CLOUDS: HeroCloudItem[] = [
     height: 506,
     top: 902,
     left: -115,
+    rotate: 0,
     layer: 3
-  },
-
-  // Transparent clouds - right (flipped)
-  {
-    id: 'cloud-trans-right-01',
-    src: CLOUD_TRANS_SRC,
-    width: 1421.46,
-    height: 481.85,
-    top: 910.6,
-    left: 599.3,
-    rotate: 180,
-    layer: 2
   },
   {
     id: 'cloud-trans-right-02',
@@ -51,19 +51,17 @@ export const HERO_CLOUDS: HeroCloudItem[] = [
     height: 481.85,
     top: 910.6,
     left: 599.3,
-    rotate: 180,
+    rotate: -180,
     layer: 4
   },
-
-  // Base cloud
   {
     id: 'cloud-01-base',
-    src: CLOUD_BASE_SRC,
+    src: '/assets/sections/HeroSection/Cloud_01.png',
     width: 2906,
     height: 951,
-    top: 597,
+    top: 520,
     left: -433,
-    rotate: 180,
+    rotate: -180,
     layer: 5
   }
 ]

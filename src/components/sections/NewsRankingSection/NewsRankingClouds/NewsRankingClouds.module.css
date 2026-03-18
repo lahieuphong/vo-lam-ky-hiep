@@ -1,0 +1,34 @@
+.cloudTopWrap {
+  position: absolute;
+  left: -917px;
+  top: 42px;
+  width: 2928px;
+  height: 1990px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cloudBottomWrap {
+  position: absolute;
+  left: -422px;
+  top: 1492px;
+  width: 2906px;
+  height: 951px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cloudImage,
+.cloudBottomImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.cloudBottomImage {
+  transform: rotate(-180deg);
+  transform-origin: center;
+}

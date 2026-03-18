@@ -1,0 +1,67 @@
+.wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* bamboo */
+/* .bambooWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  z-index: 1;
+} */
+
+/* .bambooImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+  user-select: none;
+  -webkit-user-drag: none;
+} */
+
+/* cloud vàng trái */
+.goldCloudLeft {
+  position: absolute;
+  left: -188px;
+  top: 281px;
+  width: 749px;
+  height: 416px;
+  z-index: 2;
+}
+
+.goldCloudLeftImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* transform: rotate(-180deg); */
+  transform-origin: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* cloud vàng phải */
+.goldCloudRight {
+  position: absolute;
+  left: 1036px;
+  top: 479px;
+  width: 1078px;
+  height: 599px;
+  z-index: 2;
+}
+
+.goldCloudRightImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}

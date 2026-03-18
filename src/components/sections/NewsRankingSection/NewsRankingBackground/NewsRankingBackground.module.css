@@ -1,0 +1,18 @@
+.bgWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 2142px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bgImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}

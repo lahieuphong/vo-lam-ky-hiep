@@ -1,3 +1,5 @@
+// src/components/sections/HeroSection/HeroClouds/HeroClouds.tsx
+
 'use client'
 
 import React from 'react'

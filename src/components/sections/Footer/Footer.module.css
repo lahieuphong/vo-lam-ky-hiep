@@ -1,32 +1,58 @@
-
 /* src/components/sections/Footer/Footer.module.css */
 
 .footer {
   position: relative;
-  z-index: 50;
   width: 100%;
+  overflow: visible;
+  z-index: 50;
+
+  --footer-width: 1920px;
+  --footer-height: 212px;
+
+  /* scale nhỏ lại */
+  --logo-width: 266px;
+  --logo-height: auto;
+
+  --logo-left: calc((var(--footer-width) - var(--logo-width)) / 2);
+  --logo-top: 42px;
+}
+
+.frame {
+  position: relative;
+  width: var(--footer-width);
+  height: var(--footer-height);
+  max-width: 100%;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-/* wrapper chứa background image (next/image fill) */
 .bgWrapper {
-  position: relative;
-  width: 100%;
-  height: 320px; /* chiều cao cố định cho desktop */
-}
-
-/* title/logo centered */
-.titleContainer {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.logoWrapper {
+  position: absolute;
+  left: var(--logo-left);
+  top: var(--logo-top);
+  width: var(--logo-width);
+  z-index: 2;
   pointer-events: none;
 }
 
-/* fixed width cho title */
-.titleInner {
-  width: 360px; /* cố định theo ý bạn */
-  max-width: 90%;
+.logoImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
 }

@@ -1,64 +1,41 @@
-/* src/components/sections/NewsSection/NewsSection.module.css */
+/* src/components/sections/NewsRankingSection/NewsSection/NewsSection.module.css  */
 
 .section {
   position: relative;
   width: 100%;
+  min-height: 1080px;
   overflow: visible;
-
-  --section-width: 1920px;
-  --section-height: 1080px;
-
-  --cloud-width: 2928px;
-  --cloud-height: 1990px;
-  --cloud-top: 55px;
-  --cloud-left: -918px;
+  z-index: 3;
 
   --title-width: 769px;
   --title-height: 142px;
-  --title-top: 144px;
+  --title-top: 130px;
   --title-left: 576px;
 
   --board-width: 1505px;
   --board-height: 734px;
-  --board-top: 161px;
+  --board-top: 147px;
   --board-left: 207px;
 
-  --title-font-family: 'VNI-Briquet', 'Arial', sans-serif;
-  --title-font-weight: 400;
+  /* Font VNI-Briquet */
+  --title-font-family: 'VNI-Briquet', serif;
+  --title-font-weight: 700;
   --title-font-size: 60px;
-  --title-line-height: 55px;
+  --title-line-height: 1;
   --title-letter-spacing: 0px;
-  --title-vertical-shift: 6px;
+
+  /* tinh chỉnh mắt nhìn */
+  --title-optical-offset-y: 10px;
+
   --title-gradient: linear-gradient(180deg, #fbd55e 0%, #fff9bd 55%, #dfc068 100%);
   --title-stroke-color: #6c2f00;
   --title-stroke-width: 2px;
   --title-drop-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-.frame {
+.contentLayer {
   position: relative;
-  width: var(--section-width);
-  height: var(--section-height);
-  max-width: 100%;
-  margin: 0 auto;
-  overflow: visible;
-}
-
-.cloudWrap {
-  position: absolute;
-  left: var(--cloud-left);
-  top: var(--cloud-top);
-  width: var(--cloud-width);
-  height: var(--cloud-height);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.cloudWrap img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  z-index: 2;
 }
 
 .titleFrame {
@@ -67,7 +44,7 @@
   top: var(--title-top);
   width: var(--title-width);
   height: var(--title-height);
-  z-index: 4;
+  z-index: 5;
   overflow: visible;
 }
 
@@ -78,29 +55,42 @@
   object-fit: contain;
 }
 
-.titleLabel {
+.titleTextWrap {
   position: absolute;
-  left: 50%;
-  top: calc(40% + var(--title-vertical-shift));
-  transform: translateX(-50%);
+  inset: 0;
+  z-index: 6;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(var(--title-optical-offset-y));
+  pointer-events: none;
+}
+
+.titleLabel {
   margin: 0;
   white-space: nowrap;
-  z-index: 5;
 
   font-family: var(--title-font-family);
   font-weight: var(--title-font-weight);
   font-size: var(--title-font-size);
   line-height: var(--title-line-height);
   letter-spacing: var(--title-letter-spacing);
+  text-align: center;
 
   background: var(--title-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+
   -webkit-text-stroke: var(--title-stroke-width) var(--title-stroke-color);
   text-shadow:
     0 1px 0 rgba(255,255,255,0.15),
     var(--title-drop-shadow);
+
+  font-kerning: normal;
+  text-rendering: geometricPrecision;
 }
 
 .boardWrap {
@@ -109,5 +99,5 @@
   top: var(--board-top);
   width: var(--board-width);
   height: var(--board-height);
-  z-index: 3;
+  z-index: 4;
 }
